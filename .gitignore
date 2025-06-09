@@ -1,0 +1,62 @@
+# Carpeta tmp completa (bases de datos y vectores)
+tmp/
+
+# Base de datos SQLite
+*.db
+
+# Archivos específicos de LanceDB
+*.lance
+*.manifest
+*.txn
+*.idx
+*.pos
+*.term
+*.store
+*.fieldnorm
+*.fast
+
+# Archivos de entorno y configuración
+.env
+.env.*
+!.env.example
+
+# Cachés de Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# Entornos virtuales
+venv/
+env/
+ENV/
+.env/
+.venv/
+
+# Archivos de IDEs y editores
+.idea/
+.vscode/
+*.swp
+*.swo
+*~

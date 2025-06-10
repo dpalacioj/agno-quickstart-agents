@@ -35,7 +35,9 @@ agent = Agent(
     model=Claude(id="claude-3-haiku-20240307"),
     instructions=[
         "Search your knowledge before answering the question.",
-        "Only include the output in your response. No other text.",
+        "If you find relevant information in your knowledge base, start your response with 'Based on my knowledge:' and then provide the answer.",
+        "If you don't find relevant information in your knowledge base, start your response with 'I don't have specific information about this in my knowledge base. Based on my general knowledge:' and then provide your best answer.",
+        "Present information clearly and concisely.",
     ],
     knowledge=knowledge,
     storage=storage,
@@ -51,5 +53,12 @@ if __name__ == "__main__":
     # Load the knowledge base, comment out after first run
     # Set recreate to True to recreate the knowledge base if needed
     agent.knowledge.load(recreate=False)
+    
+    # Intenta primero con una pregunta sobre Agno (que debería estar en la base de conocimiento)
+    print("\n=== Pregunta sobre Agno (debe estar en la base de conocimiento) ===")
     agent.print_response("What are the components of Agno?", stream=True)
+    
+    # Luego intenta con una pregunta fuera de la base de conocimiento
+    print("\n=== Pregunta sobre Elon Musk (no debe estar en la base de conocimiento) ===")
+    agent.print_response("Who is Elon Musk?", stream=True)
     
